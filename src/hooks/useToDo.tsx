@@ -1,11 +1,7 @@
 import { create } from "zustand";
-import { v4 as uuidv4 } from "uuid";
 import { mountStoreDevtool } from "simple-zustand-devtools";
-import { ToDo } from "../interfaces/ToDo";
+import { ToDo, StoredToDo } from "../interfaces/ToDo";
 
-interface StoredToDo extends ToDo {
-  id: string;
-}
 interface TodoState {
   todos: StoredToDo[];
   addTodo: ({}: ToDo) => void;
@@ -22,7 +18,7 @@ const useToDo = create<TodoState>((set) => ({
       todos: [
         ...state.todos,
         {
-          id: uuidv4(),
+          id: crypto.randomUUID(),
           title,
           personAssigned,
           description,
