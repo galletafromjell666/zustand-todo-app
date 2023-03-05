@@ -1,6 +1,6 @@
-import { create } from "zustand";
-import { mountStoreDevtool } from "simple-zustand-devtools";
+import { create, StateCreator } from "zustand";
 import { ToDo, StoredToDo } from "../interfaces/ToDo";
+import { persist, devtools } from "zustand/middleware";
 
 interface TodoState {
   todos: StoredToDo[];
@@ -9,12 +9,11 @@ interface TodoState {
   toggleCompletedState: (id: string) => void;
 }
 
-const useToDo = create<TodoState>((set) => ({
-  // initial state
+const todoSlice: StateCreator<TodoState> = (set) => ({
   todos: [],
-  // methods for manipulating state
   addTodo: ({ title, description, personAssigned, dateOfFinish }: ToDo) => {
     set((state) => ({
+      
       todos: [
         ...state.todos,
         {
@@ -40,6 +39,15 @@ const useToDo = create<TodoState>((set) => ({
       ),
     }));
   },
-}));
-mountStoreDevtool("ToDo", useToDo);
+});
+
+const useToDo = create<TodoState>()(
+  persist(
+    devtools((...a) => ({
+      ...todoSlice(...a),
+    })),
+    { name: "ToDo-persist" }
+  )
+);
+
 export default useToDo;
