@@ -19,8 +19,9 @@ const ToDoForm = ({ handleCloseModal }: ToDoFormProps) => {
   };
 
   return (
-    <form className="flex flex-col space-y-8 text-xl" onSubmit={handleSubmit(onSubmit)}>
-      <div>
+    <form className="flex flex-col space-y-4 text-xl" onSubmit={handleSubmit(onSubmit)}>
+      <h1 className="text-center text-2xl font-bold">Create New To-Do</h1>
+      <div className="form-div">
         <label htmlFor="title">Title:</label>
         <input
           type="text"
@@ -31,7 +32,7 @@ const ToDoForm = ({ handleCloseModal }: ToDoFormProps) => {
           })}
         />
       </div>
-      <div>
+      <div className="form-div">
         <label htmlFor="description">Description:</label>
         <textarea
           id="description"
@@ -41,7 +42,7 @@ const ToDoForm = ({ handleCloseModal }: ToDoFormProps) => {
           })}
         />
       </div>
-      <div>
+      <div className="form-div">
         <label htmlFor="personAssigned">Person Assigned:</label>
         <input
           type="text"
@@ -52,7 +53,7 @@ const ToDoForm = ({ handleCloseModal }: ToDoFormProps) => {
           })}
         />
       </div>
-      <div>
+      <div className="form-div">
         <label htmlFor="dateOfFinish">Date of Finish:</label>
         <input
           type="date"

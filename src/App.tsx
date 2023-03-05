@@ -19,8 +19,8 @@ function App() {
         closeTimeoutMS={200}
         onRequestClose={closeModal}
         contentLabel="New To Do Form"
-        className={"m-8 lg:m-16 p-10 bg-slate-400 rounded-xl"}
-        overlayClassName="fixed top-0 left-0 bottom-0 right-0 bg-slate-300/50"
+        className={"m-8 lg:m-16 p-10 bg-primary rounded-xl drop-shadow-2xl"}
+        overlayClassName="fixed top-0 left-0 bottom-0 right-0 bg-accent/50"
       >
         <NewTodoForm handleCloseModal={closeModal} />
       </Modal>

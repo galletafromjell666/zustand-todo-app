@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .form-div {
+    @apply flex;
+    @apply flex-col
+  }
+
+  .form-div label{
+    @apply my-3
+  }
+
+  .form-div input{
+    @apply bg-accent;
+    @apply rounded-md;
+    @apply w-10/12;
+    @apply h-8;
+  }
+}
+
 .ReactModal__Overlay {
   opacity: 0;
   transition: opacity 500ms ease-in-out;
