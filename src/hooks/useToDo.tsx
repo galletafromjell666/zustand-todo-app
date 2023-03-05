@@ -6,7 +6,7 @@ interface TodoState {
   todos: StoredToDo[];
   addTodo: ({}: ToDo) => void;
   removeTodo: (id: string) => void;
-  toggleCompletedState: (id: string) => void;
+  markAsCompleted: (id: string) => void;
 }
 
 const todoSlice: StateCreator<TodoState> = (set) => ({
@@ -32,10 +32,10 @@ const todoSlice: StateCreator<TodoState> = (set) => ({
       todos: state.todos.filter((todo) => todo.id !== id),
     }));
   },
-  toggleCompletedState: (id) => {
+  markAsCompleted: (id) => {
     set((state) => ({
       todos: state.todos.map((todo) =>
-        todo.id === id ? ({ ...todo, completed: true } as StoredToDo) : todo
+        todo.id === id ? ({ ...todo, isCompleted: true } as StoredToDo) : todo
       ),
     }));
   },

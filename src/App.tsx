@@ -1,6 +1,5 @@
-import { Card } from "./components/ToDo";
 import CardContainer from "./components/CardContainer";
-import NewTodoForm from "./components/ToDoContainer";
+import NewTodoForm from "./components/ToDoForm";
 
 function App() {
   return (

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { ToDo } from "../interfaces/ToDo";
 import useToDo from "../hooks/useToDo";
 
-const ExampleForm: React.FC = () => {
+const ToDoForm: React.FC = () => {
   const { register, handleSubmit, reset } = useForm<ToDo>();
   const {addTodo} = useToDo() 
 
@@ -61,4 +61,4 @@ const ExampleForm: React.FC = () => {
   );
 };
 
-export default ExampleForm;
+export default ToDoForm;

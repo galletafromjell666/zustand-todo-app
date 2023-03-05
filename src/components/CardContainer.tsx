@@ -1,5 +1,5 @@
 import useToDo from "../hooks/useToDo";
-import { Card } from "./ToDo";
+import { Card } from "./Card";
 const CardContainer = () => {
   const { todos } = useToDo();
   if (todos.length < 1) {
