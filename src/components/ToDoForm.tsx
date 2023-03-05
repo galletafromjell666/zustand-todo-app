@@ -3,25 +3,31 @@ import { useForm } from "react-hook-form";
 import { ToDo } from "../interfaces/ToDo";
 import useToDo from "../hooks/useToDo";
 
-const ToDoForm: React.FC = () => {
+interface ToDoFormProps {
+  handleCloseModal: () => void;
+}
+
+const ToDoForm = ({ handleCloseModal }: ToDoFormProps) => {
   const { register, handleSubmit, reset } = useForm<ToDo>();
-  const {addTodo} = useToDo() 
+  const { addTodo } = useToDo();
 
   const onSubmit = (data: ToDo) => {
     console.log(data);
-    addTodo(data)
-    reset()
+    addTodo(data);
+    reset();
+    handleCloseModal()
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className="flex flex-col space-y-8 text-xl" onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label htmlFor="title">Title:</label>
         <input
           type="text"
           id="title"
           {...register("title", {
-            required: true, maxLength: 25
+            required: true,
+            maxLength: 25,
           })}
         />
       </div>
@@ -31,7 +37,7 @@ const ToDoForm: React.FC = () => {
           id="description"
           {...register("description", {
             required: true,
-            maxLength: 150
+            maxLength: 150,
           })}
         />
       </div>
@@ -42,7 +48,7 @@ const ToDoForm: React.FC = () => {
           id="personAssigned"
           {...register("personAssigned", {
             required: true,
-            maxLength: 25
+            maxLength: 25,
           })}
         />
       </div>

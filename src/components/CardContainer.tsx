@@ -7,9 +7,18 @@ const CardContainer = () => {
   }
   return (
     <div>
-      {todos.map((todo) => (
-        <Card key={todo.id} {...todo} />
-      ))}
+      <p>Non completed</p>
+      {todos
+        .filter((todo) => !todo.isCompleted)
+        .map((t) => {
+          return <Card key={t.id} {...t} />;
+        })}
+      <p>Completed</p>
+      {todos
+        .filter((todo) => todo.isCompleted)
+        .map((t) => {
+          return <Card key={t.id} {...t} />;
+        })}
     </div>
   );
 };

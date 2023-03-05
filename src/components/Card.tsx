@@ -20,21 +20,25 @@ export const Card = ({
     <div>
       <h1>{title}</h1>
       <h2>{description}</h2>
-      <h3>{isCompleted ?  "completed!":"not completed"  }</h3>
-      <button
-        onClick={() => {
-          handleRemoveFromState(id);
-        }}
-      >
-        Remove!
-      </button>
-      <button
-        onClick={() => {
-          handleMarkAsCompleted(id);
-        }}
-      >
-        Mark as done
-      </button>
+      <h3>{isCompleted ? "completed!" : "not completed"}</h3>
+      {isCompleted && (
+        <button
+          onClick={() => {
+            handleRemoveFromState(id);
+          }}
+        >
+          Remove!
+        </button>
+      )}
+      {!isCompleted && (
+        <button
+          onClick={() => {
+            handleMarkAsCompleted(id);
+          }}
+        >
+          Mark as done
+        </button>
+      )}
     </div>
   );
 };
