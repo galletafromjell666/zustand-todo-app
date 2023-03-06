@@ -33,7 +33,7 @@ const ToDoForm = ({ handleCloseModal }: ToDoFormProps) => {
         className="absolute right-0 top-0 text-3xl cursor-pointer hover:translate-y-0.5"
         onClick={handleCloseModal}
       />
-      <h1 className="text-center text-2xl font-bold">Create New To-Do</h1>
+      <h1 className="text-center text-md font-bold md:text-2xl">Create New To-Do</h1>
       <div className="form-div">
         <label htmlFor="title">Title:</label>
         {errors.title && errors.title.type === "required" && (

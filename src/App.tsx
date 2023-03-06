@@ -21,11 +21,12 @@ function App() {
       <Modal
         appElement={document.getElementById("root") as HTMLElement}
         isOpen={modalIsOpen}
-        closeTimeoutMS={200}
+        closeTimeoutMS={100}
         onRequestClose={closeModal}
         contentLabel="New To Do Form"
         className={
-          "m-8 mx-auto w-4/5 h-[90%] p-4 md:p-10 bg-primary rounded-xl drop-shadow-2xl"
+
+          "m-4 md:m-8 mx-auto w-4/5 h-[100hv] p-4 md:p-10 bg-primary rounded-xl drop-shadow-2xl"
         }
         overlayClassName="fixed top-0 left-0 bottom-0 right-0 bg-accent/50"
       >
