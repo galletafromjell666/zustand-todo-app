@@ -1,6 +1,7 @@
 import { create, StateCreator } from "zustand";
 import { ToDo, StoredToDo } from "../interfaces/ToDo";
 import { persist, devtools } from "zustand/middleware";
+import { initalState } from "./initialState";
 
 interface TodoState {
   todos: StoredToDo[];
@@ -10,10 +11,9 @@ interface TodoState {
 }
 
 const todoSlice: StateCreator<TodoState> = (set) => ({
-  todos: [],
+  todos: initalState,
   addTodo: ({ title, description, personAssigned, dateOfFinish }: ToDo) => {
     set((state) => ({
-      
       todos: [
         ...state.todos,
         {

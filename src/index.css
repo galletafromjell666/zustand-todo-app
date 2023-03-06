@@ -1,22 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply font-opensans;
+  background-color: #E9E6FF;
+}
+
 @layer components {
   .form-div {
     @apply flex;
-    @apply flex-col
+    @apply flex-col;
+    @apply items-center;
   }
 
-  .form-div label{
-    @apply my-3
+  .form-div label {
+    @apply my-3;
   }
 
-  .form-div input{
+  .form-div input,
+  textarea {
     @apply bg-accent;
+    @apply py-4 px-6;
     @apply rounded-md;
     @apply w-10/12;
-    @apply h-8;
+    @apply h-10;
+  }
+
+  .form-div textarea {
+    @apply h-28;
+    resize: none;
   }
 }
 
@@ -25,20 +39,25 @@
   transition: opacity 500ms ease-in-out;
 }
 
-.ReactModal__Overlay--after-open{
+.ReactModal__Overlay--after-open {
   opacity: 1;
 }
 
-.ReactModal__Overlay--before-close{
+.ReactModal__Overlay--before-close {
   opacity: 0;
 }
 
+.container-custom {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(auto-fill, 18rem);
+  /*grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));*/
+  grid-gap: 2rem;
+}
 
-.Overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rebeccapurple;
+@media (min-width: 768px) {
+  .container-custom {
+    grid-template-columns: repeat(auto-fill, 20rem);
+  }
 }
