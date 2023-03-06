@@ -26,7 +26,7 @@ function App() {
         contentLabel="New To Do Form"
         className={
 
-          "m-4 md:m-8 mx-auto w-4/5 h-[100hv] p-4 md:p-10 bg-primary rounded-xl drop-shadow-2xl"
+          "mx-auto my-6 w-4/5 h-[100hv] p-4 md:p-10 bg-primary rounded-xl drop-shadow-2xl"
         }
         overlayClassName="fixed top-0 left-0 bottom-0 right-0 bg-accent/50"
       >
